@@ -12,9 +12,16 @@ State of development - the application is in early development and is not yet su
 
 ## Features
 - PlexUp - shows actors/roles from your now-playing [Plex](https://play.google.com/store/apps/details?id=com.plexapp.android&hl=en_US&gl=US) media, either on-demand, or automatically when you pause.
+- Coming Next - Song Id, Sports, Weather, News, Security Cameras...what else should we add?
 
 ## Feature Requirements
 - PlexUp - PlexPass ($), Plex Media Server
 
 ## Setup
-//TODO
+//TODO - install walkthrough, config file setup
+
+
+
+
+## PlexUp
+//TODO how it works

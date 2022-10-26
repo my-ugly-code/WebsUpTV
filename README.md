@@ -3,11 +3,12 @@ A Node.js application, written for Windows, that displays various web widgets ov
 
 State of development - the application is in early development and is not yet suggested for daily use
 
-## Base Requirements 
+## Requirements 
 - Windows PC - Tested with Windows 10, should work on any Windows PC
   - Install [Node.js](https://nodejs.org/en/download/)
   - Download and configure WebsUpTV
 - Android TV - Tested with NVIDIA Shield TV (v2015)
+  - Mouse higly recommended, blah
   - Install [PiPupTransparent](https://github.com/my-ugly-code/PiPupTransparent/releases)
 
 ## Features

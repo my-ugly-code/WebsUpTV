@@ -1,4 +1,8 @@
 # WebsUpTV 
+
+![](https://i.ibb.co/gV0jm6X/foto-no-exif-1.jpg)
+![](https://i.ibb.co/2kWSK4t/foto-no-exif.jpg)
+
 A Node.js application, written for Windows, that displays various web widgets over any Android TV OS application.
 
 State of development - the application is in early development and is not yet suggested for daily use, currently working throught PlexUp integration

@@ -1,7 +1,7 @@
 # WebsUpTV 
 
-![](https://i.ibb.co/gV0jm6X/foto-no-exif-1.jpg)
-![](https://i.ibb.co/2kWSK4t/foto-no-exif.jpg)
+![](https://i.ibb.co/q5Hy7x4/foto-no-exif-1.jpg)
+![](https://i.ibb.co/crkwTnF/foto-no-exif.jpg)
 
 A Node.js application, written for Windows, that displays various web widgets over any Android TV OS application.
 

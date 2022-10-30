@@ -35,4 +35,5 @@ I'll try to get a better guide here soon, but here's the quick setup guide
   - You can view the overlay data on any other local browser - the urls are displayed in PowerShell when the application starts or restarts.
   - You can manually trigger the overlay by sending a http request to PiPup directly - this can be done in apps like Button Mapper. You can set the duration to whatever you'd like, if you need to remove the overlay before the timer expires, use the red triangle (top-left corner) or send another request with duration set to 0. The first step of displaying the overlay is to clear any existing overlays.
   - The app uses no highly complex code - feel free to play around, make it look different, add more info. Show me what you've done and we can merge in anything cool that maintains existing functionality!!
+  - Feel free to report any issues to are specific to WebsUpTV. If it's a general questions (ie. How do I install Node?), just Google or YouTube it and you'll get your answer much faster :)
   

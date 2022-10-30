@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+  <style>
+    thing.closer {
+        width: 0px;
+        height: 0px;
+        border: 50px solid transparent;
+        position: fixed;
+        top: -50px;
+        left: -50px;
+        transform: rotate(315deg);
+        cursor: pointer;
+    }
+    .closer:hover{
+        border-bottom-color: red;
+    }
+    body{
+        margin: 0px; 
+        font-family: Open Sans Semibold,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+        width: 1920px;
+        height: 1080px;
+        color: #efeef3;
+        background: linear-gradient(237deg, #00000066, #00000026);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        outline: 3px solid red;
+    }
+    .rightPanel{
+        float: right;
+        width: 675px;
+        margin: 25px 25px;
+        background: linear-gradient(225deg, #00000078, #00000036);
+        padding: 25px 30px;
+    }
+    img.poster {
+        width: 290px;
+        float: right;
+        box-shadow: 2px 2px 9px 0px #00010799;
+        border-radius: 4px;
+    }
+    .title {
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 37px;
+    }
+    .detailsText {
+        padding: 0 10px 0 0;
+        display: inline-block;
+        width: 350px;
+        margin-top: -6px;
+        font-weight: 400;
+        font-size: 20px;
+    }
+    img.tmdbLogo {
+        float: right;
+        height: 14px;
+        position: relative;
+        top: 8px;
+    }
+    .parentTitle {
+        font-size: 24px;
+        line-height: 22px;
+        font-weight: 100;
+        padding-bottom: 12px;
+    }
+    .summary{
+        padding-top: 12px;
+    }
+
+
+
+
+
+    .scroller {
+        height: 670px;
+        overflow-y: scroll;
+        width: 1137px;
+        display: inline-block;
+        margin-top: 20px;
+        position: fixed;
+    }
+    .scroller::-webkit-scrollbar {
+        display: none;
+    }
+    .faces {
+        float: left;
+        width: 1070px;
+        display: grid;
+        gap: 4px;
+        grid-template-columns: auto auto auto auto auto auto auto;
+        margin: 0px 20px;
+    }
+
+    .faceCard {
+        width: 145px;
+        height: 200px;
+        background: linear-gradient(130deg, #00000078, #00000036);
+        margin: 5px;
+        padding: 10px 0 0 0;
+        border-radius: 4px;
+    }
+    .faceCard:hover {
+        /*cursor: pointer;
+        width: 500px;
+        height: 600px;
+        background-color: #000000a6;
+        transition: background-color 4s cubic-bezier(.47,1.64,.41,.8), width 2s, height 3s;
+        position: fixed;
+        z-index: 1;*/
+    }
+    .faceCard img {
+        width: 150px;
+        height: auto;
+        display: inline;
+        margin: 0 auto;
+        height: auto;
+        width: 100%;
+        position: relative;
+    }
+    span.cropper {
+        box-shadow: 2px 2px 9px 0px #00010799;
+        width: 100px;
+        height: 100px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 50%;
+        display: inline-block;
+    }
+    .actorBadge {
+        font-weight: 700;
+        font-size: 65px;
+        display: block;
+        -webkit-text-stroke: 2px #8c8c8c;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        line-height: 95px;
+    }
+    .actorName {
+        font-weight: 500;
+        font-size: 18px;
+        padding: 8px 6px;
+        line-height: 18px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 80px;
+    }
+    .role {
+        font-weight: 400;
+        font-size: 17px;
+        padding-top: 10px;
+    }
+
+    /*card flip stuff*/
+    .cardContent {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+
+      transition: transform 1s;
+      transform-style: preserve-3d;
+    }
+    .faceCard {
+      perspective: 500px;
+    }
+
+    .faceCard:hover .cardContent {
+      transform: rotateY( 180deg ) ;
+      transition: transform 0.5s;
+    }
+
+    .cardFront,
+    .cardBack {
+      text-align: center;
+      backface-visibility: hidden;
+    }
+
+    .cardBack {
+      transform: rotateY( 180deg );
+      position: relative;
+      bottom: 200px;
+      font-size: 20px;
+      padding: 10px;
+    }
+    .cardButton {
+        background: #0000003b;
+        padding: 4px 4px 6px 4px;
+        margin-top: 10px;
+        border: 3px solid #dddce0;
+        border-radius: 25px;
+        font-size: 16px;
+        pointer: cursor;
+        cursor:  pointer;
+    }
+
+
+    /*details modal*/
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+        background-color: #d9d9d9;
+        margin: 2% auto;
+        padding: 20px;
+        left: 160px;
+        position: relative;
+        border: 1px solid #888;
+        color: #747474;
+        font-size: 25px;
+        font-weight: normal;
+        width: 60%;
+    }
+    .modalBody img {
+        position: fixed;
+        left: 170px;
+        width: 330px;
+        border: 7px solid white;
+        transform: rotate(-2deg);
+        box-shadow: 1px 1px 9px #414141db;
+    }
+    .roleThumb img {
+        height: 100px;
+        width: auto;
+        position: inherit;
+        border: none;
+    }
+    .roleCard {
+        width: 340px;
+        margin: 10px;
+        padding: 10px;
+        background-color: #ffffff85;
+        box-shadow: 1px 1px 5px #41414140;
+        font-size: 24px;
+    }
+
+    .roleGrid {
+        display: inline-flex;
+        flex-flow: wrap;
+    }
+
+    span.roleThumb {
+        float: left;
+        height: 100px;
+        margin-right: 14px;
+    }
+
+    span.roleTitle {font-weight: 700;}
+
+    span.roleYear {
+        padding: 0 7px;
+        font-weight: 100;
+    }
+
+    span.roleCharacter {
+        display: block;
+        padding-top: 5px;
+    }
+    img.tmdbLogo2 {
+        float: left;
+        height: 15px;
+        position: relative;
+        top: 8px;
+    }
+    /* The Close Button */
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+
+  </style>
+
+
+  <body>
+    <div class="scroller">
+        <div class="faces leftPanel"> <!--can move a lot of this to partials later-->
+          <% if (plexData && plexData.roles) { %>
+            <% for(var i=0; i < plexData.roles.length && i < 51; i++) {%>
+              <center>
+
+                <div class="faceCard">
+                    <div class="cardContent">
+                        <div class="cardFront">
+                  <span class="cropper" style="background: <%= plexData.roles[i].randColor %>">
+                    <span class="actorBadge">
+                      <%= plexData.roles[i].tag.substring(0,1) %>
+                    </span>
+                    <img src="<%= plexData.roles[i].thumb %>"/>
+                  </span>
+                  <br/>
+                  <span class="actorName">
+                    <%= plexData.roles[i].tag %><br/>
+                    <span class="role">
+                      <%= plexData.roles[i].role %>
+                    </span>
+                  </span>
+              </div>
+              <div class="cardBack">
+                <%= plexData.roles[i].tag %><br/>
+                <div class="cardButton" onclick="getActorDetails('<%= plexData.roles[i].tag %>')"> View Details </div>
+            </div>
+
+
+                </div>
+            </div>
+              </center>
+            <% } %>
+          <% } %>
+        </div>
+    </div>
+    <div class="rightPanel">
+      <% if (plexData) { %>
+      <div class="posterWrapper">
+        <img class="poster" src="<%= plexData.posterurl %>"/> 
+      </div>
+        <div class="detailsText">
+          <div class="title">
+            <%= plexData.title %>
+          </div>
+          <div class="parentTitle">
+            <%= plexData.show %>
+          </div>
+          <div class="dateLogoLine">
+
+            <span class="releaseDate">
+                <%= plexData.releaseDate %>
+            </span>
+            <img class="tmdbLogo" src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg"/>
+          </div>
+          <div class="summary">
+            <%= plexData.summary %>
+            <% if(plexData.summary == '' && plexData.parentRec != undefined){ %>
+                <%= plexData.parentRec.summary %>
+                <% if(plexData.parentRec.summary == ''){ %>
+                There is no summary provided for this episode or series. 
+                <% } %>
+            <% } %>
+          </div>
+        </div>
+      <% } %>
+    </div>
+
+
+
+
+    <!--details modal-->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <span><img class="tmdbLogo2" src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg"/></span>
+        <p class="modalBody">Loading...</p>
+        <div class="fixResults TODO" style="display: none;">
+          Wrong <span class="fixName"></span>? Click here to select another...
+        </div>
+      </div>
+      
+
+    </div>
+
+
+
+
+
+
+
+    <thing class="closer" onclick="javascript:$('body')[0].innerHTML = '';"/>
+  </body> 
+</html>
+
+
+
+<script> /*<!--TODO: add all this to backend-->*/
+
+var modal = document.getElementById("myModal");
+
+function getActorDetails(name){
+    console.log('Getting details for:', name);
+    modal.style.display = "block";
+    $('.modalBody').html('Loading role history for '+ name + '...');
+    var modalHtml = '';
+    $('.fixName').html(name);
+    //search for person...
+    $.get("https://api.themoviedb.org/3/search/person?api_key=<%= plexData.tvdbToken %>&language=en-US&query="+name+"&page=1&include_adult=false&region=US", function(data, status){
+        console.log("Data: " , data , "\nStatus: " , status);
+        let personId = 'UNSET';
+        if(status == 'success'){
+            data.results.forEach(function (person) {
+                if(personId == 'UNSET' && person.known_for_department == 'Acting'){ //only set this once for now
+                    console.log('found actor...');
+                    personId = person.id;  ///could add these to array to allow cycling ids if first is mismatch
+                }
+            });
+            //then call for details/roles....
+            $.get("https://api.themoviedb.org/3/person/"+personId+"?api_key=<%= plexData.tvdbToken %>&language=en-US&&append_to_response=combined_credits", function(data, status){
+                console.log('got person data: ', data);
+                if(data.deathday == null){
+                    data.deathday = '';
+                }
+                else{
+                    data.deathday = ' - '+data.deathday;
+                }
+                //poster prefix - https://image.tmdb.org/t/p/w500/
+                if(data.profile_path != null){
+                    modalHtml += '<img src="https://image.tmdb.org/t/p/w500'+data.profile_path+'">';
+                }
+                modalHtml += '<em style="float:right; font-size: 20px;">'+data.birthday+data.deathday+'</em><h3>'+name+'</h3><h5>'+data.biography+'</h5>';
+                if(data.combined_credits && data.combined_credits.cast){
+                    
+                    modalHtml += '<div class="roleGrid">';
+                    data.combined_credits.cast.forEach(function (role){
+                        var posterTag = '';
+                        if(role.release_date == null){
+                            if(role.first_air_date == null){
+                                role.first_air_date = '';
+                            }
+                            role.release_date = role.first_air_date;
+                        }
+                        if(role.poster_path != null){
+                            posterTag = '<img src="https://image.tmdb.org/t/p/w500'+role.poster_path+'"/>'
+                        }
+                        if(role.original_name == undefined || role.original_name == null){
+                            if(role.original_title == undefined || role.original_title == null){
+                                role.original_title = role.title;
+                            }
+                            role.original_name = role.original_title;
+                        }
+
+
+                        modalHtml += '<div class="roleCard"><span class="roleThumb">'+posterTag+'</span><span class="roleTitle">'+role.original_name+'</span><span class="roleYear">'+role.release_date.substring(0,4)+'</span><span class="roleCharacter">'+role.character+'</span></div>';
+                    });
+                    modalHtml += '</div>';
+                }
+
+
+                $('.modalBody').html(modalHtml);
+
+            });
+            //https://api.themoviedb.org/3/person/{person_id}?api_key=<<api_key>>&language=en-US
+        }
+        else{
+            alert('Could not get role details. Check your tvdb token in config.json');
+        }
+    });
+    
+}
+
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+  $('.modalBody').html('');
+  $('.fixName').html('actor');
+
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+    $('.modalBody').html('');
+    $('.fixName').html('actor');
+  }
+}
+
+
+</script>
+
+
+
+
+
+
+
+

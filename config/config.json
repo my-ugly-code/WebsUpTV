@@ -1,0 +1,8 @@
+{ 
+    "plexToken": "<Plex X-Token here in quotes, no spaces and no < or > in any of this>",
+    "tvIp": "<IP address of your TV here, with quotes>",
+    "tvPort": <list the port where PiPupTransparent is running, get this from opening the app on your TV, no quotes>,
+    "plexServerIp": "<your PMS local IP, likely 192.168.blah.blah>",
+    "webhookPort": <the port where you send your webhook, done in PMS settings, no quotes>,
+    "tvdbToken": "<tvdb token, its free, just register for dev token, this may change in the future - in quotes>" 
+}

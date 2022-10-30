@@ -29,3 +29,10 @@ I'll try to get a better guide here soon, but here's the quick setup guide
   - Pull this repo, or download and unzip. Open the config/config.json file in Notepad or another editor, complete the config file and save.
   - From the root directory of WebsUpTV, Open a PowerShell window (shift + right click), and run "npm install". If everything installs correctly, run "npm start" next. If this doesn't work, be sure you have NPM installed correctly.
   
+  
+ ### Misc Notes
+  - If the overlay is 'stuck' on your TV, move the cursor to the top-left corner of your screen and click the red triange that appears.
+  - You can view the overlay data on any other local browser - the urls are displayed in PowerShell when the application starts or restarts.
+  - You can manually trigger the overlay by sending a http request to PiPup directly - this can be done in apps like Button Mapper. You can set the duration to whatever you'd like, if you need to remove the overlay before the timer expires, use the red triangle (top-left corner) or send another request with duration set to 0. The first step of displaying the overlay is to clear any existing overlays.
+  - The app uses no highly complex code - feel free to play around, make it look different, add more info. Show me what you've done and we can merge in anything cool that maintains existing functionality!!
+  

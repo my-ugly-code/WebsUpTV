@@ -32,7 +32,7 @@ I'll try to get a better guide here soon, but here's the quick setup guide. If y
   - Plex Settings > Webhooks - create a webhook in the format http://<WebsUpTV PC IP>:8400/plex. Eg. http://192.168.1.209:8400/plex
  
 - Configure WebsUpTV
-  - Pull this repo, or download and unzip. Open the config/config.json file in Notepad or another editor, complete the config file and save.
+  - Pull this repo, or download and unzip. Open the config/config.json file in Notepad or another editor, complete the config file and save. There is a sample config file in the config folder, this includes some additional notes on how to set this up and what the end result should look like.
   - From the root directory of WebsUpTV, Open a PowerShell window (shift + right click), and run "npm install". If everything installs correctly, run "npm start" next. If this doesn't work, be sure you have NPM installed correctly.
   
  ## FAQ

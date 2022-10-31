@@ -16,7 +16,7 @@ State of development - the application is in early development and is not yet su
   - Download and configure WebsUpTV
 - Android TV - Tested with NVIDIA Shield TV (v2015)
   - Mouse higly recommended to access all features
-  - Install [PiPupTransparent](https://github.com/my-ugly-code/PiPupTransparent/releases)
+  - Install [PiPupTransparent](https://github.com/my-ugly-code/PiPupTransparent/releases) - allow permission to 'Display over other apps'.
 
 ## Features
 - [PlexUp](https://github.com/my-ugly-code/WebsUpTV/blob/main/README.md#plexup) - shows actors/roles from your now-playing [Plex](https://play.google.com/store/apps/details?id=com.plexapp.android&hl=en_US&gl=US) media, either on-demand, or automatically when you pause.

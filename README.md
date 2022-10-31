@@ -36,11 +36,14 @@ I'll try to get a better guide here soon, but here's the quick setup guide
   - From the root directory of WebsUpTV, Open a PowerShell window (shift + right click), and run "npm install". If everything installs correctly, run "npm start" next. If this doesn't work, be sure you have NPM installed correctly.
   
   
- ### Misc Notes
+ ### Misc Notes - how to use, troubleshoot, etc.
   - When actors are visible, use your mouse to hover over a card, click the button on the card back to display movie/TV credits for that actor.
   - If the overlay is 'stuck' on your TV, move the cursor to the top-left corner of your screen and click the red triange that appears.
+  - If the overlay stops displaying, 1) you can stop the application in PowerShell by typing Ctrl+C a few times - run 'npm start' to restart.
+  - Bug reporting - if you have a reoccuring issue, and want to collect helpful information for debugging, please copy/paste your PowerShell output to a .txt file, then find/replace Plex and TMDB tokens and include that file with your report. Please do not share your Plex or other tokens, it's putting yourself at risk.
+  - It might be helpful to disable any power/battery saving on the PiPup Android application - done in Android settings.
   - You can view the overlay data on any other local browser - the urls are displayed in PowerShell when the application starts or restarts.
-  - You can manually trigger the overlay by sending a http request to PiPup directly - this can be done in apps like Button Mapper. You can set the duration to whatever you'd like, if you need to remove the overlay before the timer expires, use the red triangle (top-left corner) or send another request with duration set to 0. The first step of displaying the overlay is to clear any existing overlays.
-  - The app uses no highly complex code - feel free to play around, make it look different, add more info. Show me what you've done and we can merge in anything cool that maintains existing functionality!!
-  - Feel free to report any issues that are specific to WebsUpTV. If it's a general questions (ie. How do I install Node?), just Google or YouTube it and you'll get your answer much faster :)
+  - You can manually trigger the overlay by sending a http request to PiPup directly, totally optional - this can be done in apps like Button Mapper or Tasker. You can set the duration value to whatever you'd like, if you need to remove the overlay before the duration timer expires, use the red triangle (top-left corner) or send another request with duration set to 0. The first step of displaying the overlay is to clear any existing overlays.
+  - The app uses no highly complex code - feel free to play around, make it look different, add more info. Show me what you've done and we can merge in anything cool that maintains existing functionality!! I wrote the application in Sublime Text, you don't need any fancy IDEs to play with these files. If you're trying to do something and can't figure it out, drop me a line and I can try to help or learn with you.
+  - Feel free to report any issues that are specific to WebsUpTV, here or in the subreddit. If it's a general questions (ie. How do I install Node?), just Google or YouTube it and you'll get your answer much faster :)
   

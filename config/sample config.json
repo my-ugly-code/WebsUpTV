@@ -1,0 +1,8 @@
+{ 
+    "plexToken": "xxipxusYqxxxxxxxxxxxx",               //also referred to as X-Plex-Token - https://www.plexopedia.com/plex-media-server/general/plex-token/
+    "tvIp": "192.168.1.27",                             //open PiPup on your Android device, put that ip here, without the port or http prefix 
+    "tvPort": 7979,                                     //open PiPup on your Android device, put the port here, without the ip or prefix
+    "plexServerIp": "192.168.1.209",                    //this is the ip where you're running the node app, so whatever computer you're editing this on, not the TV ip. This has to match the webhook ip you use in Plex settings
+    "webhookPort": 8400,                                //pick an open port on your computer, this has to match the webhook port you setup in Plex settings
+    "tvdbToken": "xxe4979fe9421549e6exxxxxxxxxxxxxx"    //get it here https://www.themoviedb.org/settings/api, this is the shorter v3 key, NOT the long v4 key
+}

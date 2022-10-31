@@ -49,4 +49,5 @@ I'll try to get a better guide here soon, but here's the quick setup guide. If y
   - The app uses no highly complex code - feel free to play around, make it look different, add more info. Show me what you've done and we can merge in anything cool that maintains existing functionality!! I wrote the application in Sublime Text, you don't need any fancy IDEs to play with these files. If you're trying to do something and can't figure it out, drop me a line and I can try to help or learn with you.
   - Feel free to report any issues that are specific to WebsUpTV, here or in the subreddit. If it's a general questions (ie. How do I install Node?), just Google or YouTube it and you'll get your answer much faster :)
   - Bug reporting - if you have a reoccuring issue, and want to collect helpful information for debugging, please copy/paste your PowerShell output to a .txt file, then find/replace Plex and TMDB tokens and include that file with your report. Please do not share your Plex or other tokens, it's putting yourself at risk.
+  - Want to help? https://github.com/my-ugly-code/WebsUpTV/issues
   

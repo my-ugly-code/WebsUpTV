@@ -5,7 +5,7 @@
 
 [Reddit Community](https://www.reddit.com/r/WebsUpTV)
 
-A Node.js application, written for Windows, that displays various web widgets over any Android TV OS application.
+A Node.js application that displays various web widgets over any Android TV OS application.
 
 State of development - the application is in early development and is not yet suggested for daily use, currently working through PlexUp integration
 

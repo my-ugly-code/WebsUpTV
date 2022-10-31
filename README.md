@@ -36,7 +36,7 @@ I'll try to get a better guide here soon, but here's the quick setup guide. If y
   - From the root directory of WebsUpTV, Open a PowerShell window (shift + right click), and run "npm install". If everything installs correctly, run "npm start" next. If this doesn't work, be sure you have NPM installed correctly.
   
  ## FAQ
- There's a list of FAQs [here](https://github.com/my-ugly-code/WebsUpTV/wiki/FAQ). This covers general questions and some setup troubleshooting.
+ There's a list of FAQs [here](https://github.com/my-ugly-code/WebsUpTV/wiki/FAQ). This covers general questions and some setup troubleshooting. Don't see your answer here? Just ask!
   
   
  ### Misc Notes - odd bugs, how to use, troubleshoot, etc.
@@ -50,7 +50,6 @@ I'll try to get a better guide here soon, but here's the quick setup guide. If y
   - You can view the overlay data on any other local browser - the urls are displayed in PowerShell when the application starts or restarts.
   - You can manually trigger the overlay by sending a http request to PiPup directly, totally optional - this can be done in apps like Button Mapper or Tasker. You can set the duration value to whatever you'd like, if you need to remove the overlay before the duration timer expires, use the red triangle (top-left corner) or send another request with duration set to 0. The first step of displaying the overlay is to clear any existing overlays.
   - The app uses no highly complex code - feel free to play around, make it look different, add more info. Show me what you've done and we can merge in anything cool that maintains existing functionality!! I wrote the application in Sublime Text, you don't need any fancy IDEs to play with these files. If you're trying to do something and can't figure it out, drop me a line and I can try to help or learn with you.
-  - Feel free to report any issues that are specific to WebsUpTV, here or in the subreddit. If it's a general questions (ie. How do I install Node?), just Google or YouTube it and you'll get your answer much faster :)
   - Bug reporting - if you have a reoccuring issue, and want to collect helpful information for debugging, please copy/paste your PowerShell output to a .txt file, then find/replace Plex and TMDB tokens and include that file with your report. Please do not share your Plex or other tokens, it's putting yourself at risk.
   - Want to help? https://github.com/my-ugly-code/WebsUpTV/issues there's stuff in there for all skill levels, even if you've never coded before :)
   

@@ -68,8 +68,7 @@ function cleanData(config, req){
           show: payload.Metadata.grandparentTitle,
           topKey: payload.Metadata.grandparentKey,
           event: payload.event,
-          releaseDate: payload.Metadata.originallyAvailableAt,
-          pipUrl: 'http://192.168.1.209:32400/web/index.html#!/server/'+payload.Server.uuid+'/details?key='+payload.Metadata.grandparentKey
+          releaseDate: payload.Metadata.originallyAvailableAt
       };
 
 

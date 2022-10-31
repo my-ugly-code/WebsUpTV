@@ -35,6 +35,9 @@ I'll try to get a better guide here soon, but here's the quick setup guide. If y
   - Pull this repo, or download and unzip. Open the config/config.json file in Notepad or another editor, complete the config file and save.
   - From the root directory of WebsUpTV, Open a PowerShell window (shift + right click), and run "npm install". If everything installs correctly, run "npm start" next. If this doesn't work, be sure you have NPM installed correctly.
   
+ ## FAQ
+ There's a list of FAQs [here](https://github.com/my-ugly-code/WebsUpTV/wiki/FAQ). This covers general questions and some setup troubleshooting.
+  
   
  ### Misc Notes - odd bugs, how to use, troubleshoot, etc.
   - Please check back for updates often, there is no auto update feature currently in place. To update, you can save your config.json file for reference, but note the changelog as the config.json file will expand in future releases.

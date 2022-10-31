@@ -10,7 +10,7 @@ A Node.js application, written for Windows, that displays various web widgets ov
 State of development - the application is in early development and is not yet suggested for daily use, currently working through PlexUp integration
 
 ## Requirements 
-- Windows PC - Tested with Windows 10, should work on any Windows PC
+- Windows PC - Tested with Windows 10, should work on other OSs running PMS, but not yet tested
   - Install [Node.js](https://nodejs.org/en/download/)
   - Install Node NPM
   - Download and configure WebsUpTV

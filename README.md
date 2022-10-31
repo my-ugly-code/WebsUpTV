@@ -23,7 +23,7 @@ State of development - the application is in early development and is not yet su
 - Coming Next - Song Id, Sports, Weather, News, Security Cameras...what else should we add?
 
 ## Feature Requirements
-- PlexUp - PlexPass ($$), Plex Media Server
+- PlexUp - PlexPass ($$), Plex Media Server, TMDB api key (free)
 
 ## Setup
 I'll try to get a better guide here soon, but here's the quick setup guide. If you get stuck, post in the subreddit and I'll try to help get you going. 
